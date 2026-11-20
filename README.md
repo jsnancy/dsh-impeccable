@@ -31,7 +31,7 @@ Every command and every rule carries a Chinese name and description, so the pane
 
 ## Visual language
 
-The panel is set like a magazine page, not a settings form, and it is typeset tight: 12.5px body text, 26px display line, 8px between command cards. A serif display line opens it, under a bracketed eyebrow label; sections are numbered and separated by hairlines instead of boxed cards; totals are set in large tabular figures; the primary button and the selected category chip invert to the foreground colour the way a print plate does; and a single small brand square marks each section number so the page carries one accent, not six. Everything is built from `--dsw-alias-*` tokens, so it holds up in both light and dark themes.
+The panel is set like a magazine page, not a settings form, and it is typeset tight: 12.5px body text, 26px display line, 8px between command cards. The rule catalogue opens by default and runs in two columns, name first, id and category trailing. A serif display line opens it, under a bracketed eyebrow label; sections are numbered and separated by hairlines instead of boxed cards; totals are set in large tabular figures; the primary button and the selected category chip invert to the foreground colour the way a print plate does; and a single small brand square marks each section number so the page carries one accent, not six. Everything is built from `--dsw-alias-*` tokens, so it holds up in both light and dark themes.
 
 ## Install
 
@@ -72,7 +72,7 @@ dsh plugin remove dsh-impeccable-studio
 
 **全中文**：24 条命令和 62 条规则的名称、说明都有中文，界面语言是中文时默认显示中文，缺译处回落到英文原文，规则搜索中英双匹配。
 
-面板按刊物扉页来排，字排得紧：正文 12.5px、标题 26px、命令卡之间 8px；先一行方括号小标，再一个衬线标题；区块用编号和一条细线分开，而不是把每块装进卡片；总数用大号等宽数字；主按钮和选中的分类是反白块，像印刷里的专色；每个区块编号前只有一个品牌色小方块做点睛。样式全部取自 `--dsw-alias-*` 主题变量，明暗主题都成立。
+面板按刊物扉页来排，字排得紧：正文 12.5px、标题 26px、命令卡之间 8px；规则目录默认展开、排成两栏，名称在前，id 和分类跟在后面；先一行方括号小标，再一个衬线标题；区块用编号和一条细线分开，而不是把每块装进卡片；总数用大号等宽数字；主按钮和选中的分类是反白块，像印刷里的专色；每个区块编号前只有一个品牌色小方块做点睛。样式全部取自 `--dsw-alias-*` 主题变量，明暗主题都成立。
 
 **不用手动装技能**：技能（4.10.0，24 命令 / 62 规则 / 47 篇参考文档）已经打包在插件的 `skill/` 目录里，装插件即用。
 
