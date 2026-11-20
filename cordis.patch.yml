@@ -2,4 +2,4 @@
 # 浏览器半边（左侧栏图标 + 审校台面板）由 package.json 的 dsh.client 声明加载。
 - insert:
     - id: impeccable
-      name: 'dsh-impeccable'
+      name: 'dsh-impeccable-studio'

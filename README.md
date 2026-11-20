@@ -24,7 +24,7 @@ The plugin never reaches the network by itself — it only calls the local engin
 ## Install
 
 ```bash
-dsh plugin add dsh-impeccable
+dsh plugin add dsh-impeccable-studio
 ```
 
 From a checkout, `dsh plugin add ./plugins/dsh-impeccable` (or **Install local plugin** in the plugin panel) works too. Restart DeepSeek Harness afterwards: the host reads the bundle list at startup.
@@ -32,7 +32,7 @@ From a checkout, `dsh plugin add ./plugins/dsh-impeccable` (or **Install local p
 ## Uninstall
 
 ```bash
-dsh plugin remove dsh-impeccable
+dsh plugin remove dsh-impeccable-studio
 ```
 
 ## How it works
@@ -59,8 +59,8 @@ dsh plugin remove dsh-impeccable
 需要本机有 impeccable 技能与引擎：技能在 `~/.dsh/skills/impeccable/`（`npx impeccable install --providers=dsh --scope=global`），引擎在 `~/.impeccable/bin/<version>/impeccable`，缺哪样面板会直接提示。
 
 ```bash
-dsh plugin add dsh-impeccable     # 安装
-dsh plugin remove dsh-impeccable  # 卸载
+dsh plugin add dsh-impeccable-studio     # 安装
+dsh plugin remove dsh-impeccable-studio  # 卸载
 ```
 
 装完重启 DeepSeek Harness 生效。终端里跑 `npx impeccable ...` 需要代理的话，先 `export HTTPS_PROXY=http://127.0.0.1:7890`；插件本身不走网络，只调本地引擎。
