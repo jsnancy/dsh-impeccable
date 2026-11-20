@@ -31,7 +31,7 @@ Every command and every rule carries a Chinese name and description, so the pane
 
 ## Visual language
 
-The panel is typeset rather than decorated: square corners, hairline rules, a two-pixel brand line across the top, tabular figures for every count, a connected badge strip for versions, and a one-pixel grid that separates the command cards. Everything is built from `--dsw-alias-*` and `--dsw-specific-*` tokens, so it follows the host's light and dark themes without a second stylesheet.
+The panel is set like a magazine page, not a settings form. A serif display line opens it, under a bracketed eyebrow label; sections are numbered and separated by hairlines instead of boxed cards; totals are set in large tabular figures; the primary button and the selected category chip invert to the foreground colour the way a print plate does; and a single small brand square marks each section number so the page carries one accent, not six. Everything is built from `--dsw-alias-*` tokens, so it holds up in both light and dark themes.
 
 ## Install
 
@@ -72,7 +72,7 @@ dsh plugin remove dsh-impeccable-studio
 
 **全中文**：24 条命令和 62 条规则的名称、说明都有中文，界面语言是中文时默认显示中文，缺译处回落到英文原文，规则搜索中英双匹配。
 
-面板的排版是「瑞士国际主义」那一路：直角、细线、顶部一条两像素品牌色、所有数字用等宽等宽表格式数字、版本号连成一条规格带、命令卡之间用一像素网格线分隔。样式全部取自 `--dsw-alias-*` 主题变量，跟随宿主明暗主题。
+面板按刊物扉页来排：先一行方括号小标，再一个大号衬线标题；区块用编号和一条细线分开，而不是把每块装进卡片；总数用大号等宽数字；主按钮和选中的分类是反白块，像印刷里的专色；每个区块编号前只有一个品牌色小方块做点睛。样式全部取自 `--dsw-alias-*` 主题变量，明暗主题都成立。
 
 **不用手动装技能**：技能（4.10.0，24 命令 / 62 规则 / 47 篇参考文档）已经打包在插件的 `skill/` 目录里，装插件即用。
 
