@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "title": "Impeccable 审校台",
+    "description": "把 impeccable 的 24 条设计命令和 62 条确定性检测规则搬进侧栏：填一个路径或网址就能扫出界面问题，点一条命令就能开新对话照着改。"
+  },
+  "panel": {
+    "title": "Impeccable 审校台",
+    "subtitle": "设计词汇表 · 确定性检测",
+    "scan": "扫描目标",
+    "scanPlaceholder": "项目路径或网址，例如 /Users/you/project 或 https://example.com",
+    "scanAction": "扫描",
+    "scanning": "扫描中…",
+    "scanEmpty": "填一个路径或网址，「扫描」会跑 62 条规则，把界面问题一次性列出来。",
+    "scanClean": "没有发现问题。",
+    "scanFailed": "扫描失败",
+    "summary": "{total} 项 · {warning} 警告 · {advisory} 提示",
+    "commands": "命令",
+    "commandsHint": "点一下复制提示词；点右上角箭头开新对话。",
+    "rules": "规则目录",
+    "rulesHint": "{n} 条确定性规则，不需要模型或 API key。",
+    "rulesSearch": "搜索规则、分类或说明…",
+    "showAll": "展开全部 {n} 条",
+    "showLess": "收起",
+    "copied": "已复制",
+    "openSession": "开新对话",
+    "engineMissing": "找不到 impeccable 引擎，先在终端跑一次 npx impeccable install。",
+    "skillMissing": "找不到 ~/.dsh/skills/impeccable，先安装技能。",
+    "warning": "警告",
+    "advisory": "提示",
+    "all": "全部"
+  }
+}
