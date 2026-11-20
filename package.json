@@ -1,6 +1,6 @@
 {
   "name": "dsh-impeccable-studio",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Impeccable review desk for DeepSeek Harness: 24 design commands, 62 deterministic detectors and a one-click scan of the interface in front of you, set like a magazine spread rather than a settings form. The skill ships inside the package, every command and rule is translated to Chinese, and the panel follows the host light and dark theme.",
   "type": "module",
   "main": "lib/index.js",
