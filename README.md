@@ -4,22 +4,26 @@ Design review desk for DeepSeek Harness. Brings [impeccable](https://github.com/
 
 An eye icon appears in the sidebar; clicking it opens the **Impeccable Studio** panel with three sections.
 
-- **Scan** — point it at a project path or a URL and it runs all 62 deterministic rules (no model, no API key, no network), then groups the findings by rule and lists where they are.
-- **Commands** — the 24 commands (`critique`, `audit`, `polish`, `typeset`, `live`, …). Clicking a card copies its prompt; the arrow in the corner starts a new conversation with that prompt instead.
+- **Scan** — point it at a project path or a URL and it runs all 62 deterministic rules (no model, no API key), then groups the findings by rule and lists where they are.
+- **Commands** — the 24 commands (`critique`, `audit`, `polish`, `typeset`, `live`, …). Clicking a card copies its prompt; the arrow in the corner starts a new conversation with that prompt instead. The prompt points the agent at the skill docs so it can read `SKILL.md` and `reference/<command>.md` before acting.
 - **Rules** — the 62 rules, searchable, with id, category and description. Collapsed by default.
 
-## Requirements
+## Nothing to install by hand
 
-Both live on your machine already, or the panel tells you what is missing:
+The skill ships inside this package (`skill/`, version 4.10.0 — 24 commands, 62 rules, 47 reference docs). Installing the plugin is enough.
 
-| What | Where |
-| --- | --- |
-| Skill | `~/.dsh/skills/impeccable/` (`npx impeccable install --providers=dsh --scope=global`) |
-| Engine | `~/.impeccable/bin/<version>/impeccable` (downloaded by the skill on first use) |
+The only thing that arrives later is the detection engine, a ~21 MB native binary:
 
-On startup the panel reads `/impeccable/api/catalog`, which reports the skill version, the engine version and the rule count. The engine is looked up in this order: `IMPECCABLE_BIN`, the highest version under `~/.impeccable/bin`, then the launcher bundled with the skill.
+| What | Where | When |
+| --- | --- | --- |
+| Skill | `skill/` in this package | shipped with the plugin |
+| Engine | `~/.impeccable/bin/<version>/impeccable` | downloaded in the background on first load |
 
-The plugin never reaches the network by itself — it only calls the local engine.
+On load the host side starts the bundled launcher (`skill/scripts/impeccable`) once in the background, so the binary is usually there before you click Scan. If a scan happens first, that scan downloads it and may take a minute. The engine is looked up in this order: `IMPECCABLE_BIN`, the highest version under `~/.impeccable/bin`, then the bundled launcher.
+
+If you already ran `npx impeccable install --providers=dsh --scope=global` before, `~/.dsh/skills/impeccable` takes precedence over the bundled copy — so an upgrade you installed yourself is never shadowed by an older one.
+
+The plugin itself never calls the network. Only the engine download does, and only once.
 
 ## Install
 
@@ -37,8 +41,9 @@ dsh plugin remove dsh-impeccable-studio
 
 ## How it works
 
-- `lib/index.js` — host side. Registers two routes under `/impeccable/api/*` (`catalog`, `detect`), finds the engine, runs the CLI and returns JSON. Each detection runs with a 180s timeout, a 64MB buffer and at most 600 findings returned.
+- `lib/index.js` — host side. Registers two routes under `/impeccable/api/*` (`catalog`, `detect`), resolves the skill and the engine, runs the CLI and returns JSON. Each detection runs with a 180s timeout (10min while the engine is still downloading), a 64MB buffer and at most 600 findings returned.
 - `lib/client.js` — browser side. Registers `sidebar.panellist` (order 15) and `main` (`key: impeccable`).
+- `skill/` — the bundled skill: `SKILL.md`, 24 command rows, 47 reference docs, the launcher and its data files.
 - `locale/` — title and description shown in the plugin list.
 - All styling uses `--dsw-alias-*` theme tokens, so light and dark follow the app.
 
@@ -53,14 +58,18 @@ dsh plugin remove dsh-impeccable-studio
 左侧栏多一个眼睛图标，点开是「Impeccable 审校台」：
 
 - **扫描** — 填项目路径或网址，跑 62 条确定性规则（不用模型、不用 API key），按规则分组列出问题位置
-- **命令** — 24 条命令（critique / audit / polish / typeset / live …），点一下复制提示词，点卡片右上角箭头直接开新对话
+- **命令** — 24 条命令（critique / audit / polish / typeset / live …），点一下复制提示词，点卡片右上角箭头直接开新对话；提示词会带上技能文档路径，agent 先读 `SKILL.md` 的 Setup 再执行
 - **规则目录** — 62 条规则可搜索，看 id、分类、说明
 
-需要本机有 impeccable 技能与引擎：技能在 `~/.dsh/skills/impeccable/`（`npx impeccable install --providers=dsh --scope=global`），引擎在 `~/.impeccable/bin/<version>/impeccable`，缺哪样面板会直接提示。
+**不用手动装技能**：技能（4.10.0，24 命令 / 62 规则 / 47 篇参考文档）已经打包在插件的 `skill/` 目录里，装插件即用。
+
+唯一后到的是检测引擎（约 21 MB 的原生二进制）：插件加载时会在后台用自带的启动器下载一次，通常你点扫描之前就已经好了；如果没好，那次扫描会边下边跑，多等一分钟。查找顺序是 `IMPECCABLE_BIN` → `~/.impeccable/bin` 下最高版本 → 包内启动器。
+
+之前自己跑过 `npx impeccable install --providers=dsh --scope=global` 的话，`~/.dsh/skills/impeccable` 优先于包内副本，自己升级的版本不会被旧版盖住。
 
 ```bash
 dsh plugin add dsh-impeccable-studio     # 安装
 dsh plugin remove dsh-impeccable-studio  # 卸载
 ```
 
-装完重启 DeepSeek Harness 生效。终端里跑 `npx impeccable ...` 需要代理的话，先 `export HTTPS_PROXY=http://127.0.0.1:7890`；插件本身不走网络，只调本地引擎。
+装完重启 DeepSeek Harness 生效。插件本身不走网络，只有引擎下载需要联网。
