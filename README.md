@@ -33,6 +33,16 @@ Every command and every rule carries a Chinese name and description, so the pane
 
 The panel is set like a magazine page, not a settings form, and it is typeset tight: 12.5px body text, 26px display line, 8px between command cards. The rule catalogue opens by default and runs in two columns, name first, id and category trailing. A serif display line opens it, under a bracketed eyebrow label; sections are numbered and separated by hairlines instead of boxed cards; totals are set in large tabular figures; the primary button and the selected category chip invert to the foreground colour the way a print plate does; and a single small brand square marks each section number so the page carries one accent, not six. Beyond the type: a brand-colour hairline across the masthead, a faint IMPECCABLE wordmark set into it, oversized serif section numbers, a two-pixel rule over each scan figure, a hairline cross in the corner of every command card that turns brand-coloured on hover, and a colophon rule at the foot carrying the versions. Everything is built from `--dsw-alias-*` tokens, so it holds up in both light and dark themes.
 
+## Three steps, no vocabulary
+
+The panel is written for someone who has never opened a design tool. There is nothing to type and no command to remember:
+
+1. **Pick a page.** The plugin lists the HTML files you edited recently on this machine — click one. Only if nothing turns up do you paste a path or URL.
+2. **Press one button.** "Check this page" runs all 62 rules against it.
+3. **Read what is wrong.** Findings are grouped by problem, in plain Chinese ("文字对比度不足"), with the file and line, and every group carries a **Have AI fix it** button that opens a session preloaded with the file, the problem and the skill path.
+
+The 24 commands and the 62-rule catalog are still there, but folded away under *More tools* and *What it checks* — a beginner never has to scroll past them, and the command cards lead with a Chinese action ("挑毛病") with the real command name as a footnote.
+
 ## Checked against its own rules
 
 This panel is scanned by the same 62 rules it exposes. The first pass found 66 problems in it: it opened with a tracked uppercase kicker above the heading (banned outright), its scanning bar was an infinite horizontal marquee (banned), and 62 runs of text sat under the 11px legibility floor. The kicker is gone, the bar breathes in place instead of sliding, and every functional label is at least 12px. The current build scans clean — `detect /tmp/im-preview.html` returns nothing, in both themes.
