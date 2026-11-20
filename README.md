@@ -25,6 +25,14 @@ If you already ran `npx impeccable install --providers=dsh --scope=global` befor
 
 The plugin itself never calls the network. Only the engine download does, and only once.
 
+## Bilingual by default
+
+Every command and every rule carries a Chinese name and description, so the panel reads as one language instead of half English. Chinese is the default when the app language is Chinese; wherever a translation is missing the panel falls back to the English original instead of showing an empty line, and the rule search matches both languages at once.
+
+## Visual language
+
+The panel is typeset rather than decorated: square corners, hairline rules, a two-pixel brand line across the top, tabular figures for every count, a connected badge strip for versions, and a one-pixel grid that separates the command cards. Everything is built from `--dsw-alias-*` and `--dsw-specific-*` tokens, so it follows the host's light and dark themes without a second stylesheet.
+
 ## Install
 
 ```bash
@@ -44,6 +52,7 @@ dsh plugin remove dsh-impeccable-studio
 - `lib/index.js` — host side. Registers two routes under `/impeccable/api/*` (`catalog`, `detect`), resolves the skill and the engine, runs the CLI and returns JSON. Each detection runs with a 180s timeout (10min while the engine is still downloading), a 64MB buffer and at most 600 findings returned.
 - `lib/client.js` — browser side. Registers `sidebar.panellist` (order 15) and `main` (`key: impeccable`).
 - `skill/` — the bundled skill: `SKILL.md`, 24 command rows, 47 reference docs, the launcher and its data files.
+- `lib/zh.js` — Chinese names and descriptions for the 24 commands, 6 categories and all 62 rules, applied on the host side when building the catalog.
 - `locale/` — title and description shown in the plugin list.
 - All styling uses `--dsw-alias-*` theme tokens, so light and dark follow the app.
 
@@ -60,6 +69,10 @@ dsh plugin remove dsh-impeccable-studio
 - **扫描** — 填项目路径或网址，跑 62 条确定性规则（不用模型、不用 API key），按规则分组列出问题位置
 - **命令** — 24 条命令（critique / audit / polish / typeset / live …），点一下复制提示词，点卡片右上角箭头直接开新对话；提示词会带上技能文档路径，agent 先读 `SKILL.md` 的 Setup 再执行
 - **规则目录** — 62 条规则可搜索，看 id、分类、说明
+
+**全中文**：24 条命令和 62 条规则的名称、说明都有中文，界面语言是中文时默认显示中文，缺译处回落到英文原文，规则搜索中英双匹配。
+
+面板的排版是「瑞士国际主义」那一路：直角、细线、顶部一条两像素品牌色、所有数字用等宽等宽表格式数字、版本号连成一条规格带、命令卡之间用一像素网格线分隔。样式全部取自 `--dsw-alias-*` 主题变量，跟随宿主明暗主题。
 
 **不用手动装技能**：技能（4.10.0，24 命令 / 62 规则 / 47 篇参考文档）已经打包在插件的 `skill/` 目录里，装插件即用。
 
