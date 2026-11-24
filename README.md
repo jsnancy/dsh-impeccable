@@ -2,7 +2,7 @@
 
 Design review desk for DeepSeek Harness. Brings [impeccable](https://github.com/pbakaus/impeccable)'s design vocabulary into the sidebar: 24 commands, 62 deterministic detectors, and a one-click scan of the interface in front of you.
 
-An eye icon appears in the sidebar; clicking it opens the **Impeccable Studio** panel with three sections.
+The **设计校审台** mark appears in the sidebar; clicking it opens the review desk panel with three sections.
 
 - **Scan** — point it at a project path or a URL and it runs all 62 deterministic rules (no model, no API key), then groups the findings by rule and lists where they are.
 - **Commands** — the 24 commands (`critique`, `audit`, `polish`, `typeset`, `live`, …). Clicking a card copies its prompt; the arrow in the corner starts a new conversation with that prompt instead. The prompt points the agent at the skill docs so it can read `SKILL.md` and `reference/<command>.md` before acting.
@@ -78,7 +78,7 @@ dsh plugin remove dsh-impeccable-studio
 
 把 [impeccable](https://github.com/pbakaus/impeccable) 的设计审校能力搬进 DeepSeek Harness 左侧面板。
 
-左侧栏多一个眼睛图标，点开是「Impeccable 审校台」：
+左侧栏多一个放大镜图标，点开是「设计校审台」：
 
 - **扫描** — 填项目路径或网址，跑 62 条确定性规则（不用模型、不用 API key），按规则分组列出问题位置
 - **命令** — 24 条命令（critique / audit / polish / typeset / live …），点一下复制提示词，点卡片右上角箭头直接开新对话；提示词会带上技能文档路径，agent 先读 `SKILL.md` 的 Setup 再执行

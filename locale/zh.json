@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Impeccable 审校台",
+    "title": "设计校审台",
     "description": "把 impeccable 的 24 条设计命令和 62 条确定性检测规则搬进侧栏：填一个路径或网址就能扫出界面问题，点一条命令就能开新对话照着改。"
   },
   "panel": {
-    "title": "Impeccable 审校台",
+    "title": "设计校审台",
     "subtitle": "设计词汇表 · 确定性检测",
     "scan": "扫描目标",
     "scanPlaceholder": "项目路径或网址，例如 /Users/you/project 或 https://example.com",

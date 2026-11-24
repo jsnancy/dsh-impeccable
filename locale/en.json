@@ -1,10 +1,10 @@
 {
   "meta": {
-    "title": "Impeccable Studio",
+    "title": "Design Review Desk",
     "description": "Impeccable's 24 design commands and 62 deterministic detectors inside the sidebar: point it at a path or URL to list what is wrong with the interface, then open a session from any command to fix it."
   },
   "panel": {
-    "title": "Impeccable Studio",
+    "title": "Design Review Desk",
     "subtitle": "Design vocabulary · Deterministic checks",
     "scan": "Scan target",
     "scanPlaceholder": "Project path or URL, e.g. /Users/you/project or https://example.com",
