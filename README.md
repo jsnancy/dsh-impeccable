@@ -40,7 +40,7 @@ The panel is written for someone who has never opened a design tool. There is no
 
 1. **Pick a page.** The field at the top lists the HTML files you edited recently on this machine; type to filter, click a card, or press the arrow on it to check it right away. Only if nothing turns up do you paste a path or URL.
 2. **Press one button.** "Check page" runs all 62 rules against it and the result section appears below.
-3. **Read what is wrong.** Findings are grouped by problem, in plain Chinese ("文字对比度不足"), with the file and line, and every group carries a **Have AI fix it** button that opens a session preloaded with the file, the problem and the skill path.
+3. **Read what is wrong.** Findings are grouped by problem, in plain Chinese ("文字对比度不足"), with the file and line, and every group carries a **Have AI fix it** link that opens a session preloaded with the file, the problem and the skill path.
 
 The 24 commands and the 62-rule catalog are still there, but folded away under *More tools* and *What it checks* — a beginner never has to scroll past them, and the command cards lead with a Chinese action ("挑毛病") with the real command name as a footnote.
 
@@ -82,7 +82,7 @@ dsh plugin remove dsh-impeccable-studio
 左侧栏多一个放大镜图标，点开是「设计校审台」，四个编号区块：
 
 - **选页面** — 输入框在最上面：筛选最近改过的 HTML，或粘贴路径 / 网址。点卡片选中，点卡片右上角箭头直接检查
-- **看结果** — 问题按类型分组，写清文件和行号，每组最多列三处，带「让 AI 帮我改」按钮；检查完成后这一块会自动滚进视野
+- **看结果** — 问题按类型分组，写清文件和行号，每组最多列三处，带「让 AI 帮我改」链接；检查完成后这一块会自动滚进视野
 - **命令** — 24 条命令（critique / audit / polish / typeset / live …），点一下复制提示词，点卡片右上角箭头直接开新对话；提示词会带上技能文档路径，agent 先读 `SKILL.md` 的 Setup 再执行
 - **规则目录** — 62 条规则可搜索，看 id、分类、说明
 
@@ -90,7 +90,7 @@ dsh plugin remove dsh-impeccable-studio
 
 **明暗两套**：左栏底部「自动 / 浅色 / 深色」三档。自动跟随 DSH 当前主题，浅色和深色把面板锁成纸白或墨黑；两套配色都写在面板自己的 `--im-*` 变量里，与宿主主题解耦，刷新后保留选择。
 
-面板按印刷品来排：区块用编号和细线分开，命令卡用细边框而不是厚卡片，数字用等宽表格数字；左栏是一列窄导航，900px 以下折成顶栏，560px 以下单列。功能标签不小于 12px，动效只保留骨架微光和一条 3px 进度条。
+面板按印刷品来排：区块用编号和细线分开，命令卡用细边框而不是厚卡片，数字用等宽表格数字；左栏是一列窄导航，900px 以下折成顶栏，560px 以下单列。正文不小于 12px，小号等宽标签 11px；动效只保留骨架微光和一条会呼吸的 3px 进度条。
 
 **不用手动装技能**：技能（4.10.0，24 命令 / 62 规则 / 47 篇参考文档）已经打包在插件的 `skill/` 目录里，装插件即用。
 
