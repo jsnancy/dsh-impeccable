@@ -1,32 +1,6 @@
 {
   "meta": {
     "title": "Design Review Desk",
-    "description": "Impeccable's 24 design commands and 62 deterministic detectors inside the sidebar: point it at a path or URL to list what is wrong with the interface, then open a session from any command to fix it."
-  },
-  "panel": {
-    "title": "Design Review Desk",
-    "subtitle": "Design vocabulary · Deterministic checks",
-    "scan": "Scan target",
-    "scanPlaceholder": "Project path or URL, e.g. /Users/you/project or https://example.com",
-    "scanAction": "Scan",
-    "scanning": "Scanning…",
-    "scanEmpty": "Give it a path or URL and Scan runs 62 rules, listing what is wrong with the interface in one pass.",
-    "scanClean": "No issues found.",
-    "scanFailed": "Scan failed",
-    "summary": "{total} findings · {warning} warning · {advisory} advisory",
-    "commands": "Commands",
-    "commandsHint": "Click to copy the prompt; the arrow opens a new session.",
-    "rules": "Rule catalog",
-    "rulesHint": "{n} deterministic rules, no model or API key required.",
-    "rulesSearch": "Search rules, categories or descriptions…",
-    "showAll": "Show all {n}",
-    "showLess": "Show less",
-    "copied": "Copied",
-    "openSession": "New session",
-    "engineMissing": "Impeccable engine not found. Run npx impeccable install in a terminal once.",
-    "skillMissing": "~/.dsh/skills/impeccable is missing. Install the skill first.",
-    "warning": "warning",
-    "advisory": "advisory",
-    "all": "All"
+    "description": "Design review desk: impeccable's 24 design commands and 62 deterministic detectors in the sidebar. One field at the top to search or paste a path, one click to run all 62 checks, findings grouped by problem — with a full English/Chinese switch and its own light, dark or auto theme."
   }
 }
