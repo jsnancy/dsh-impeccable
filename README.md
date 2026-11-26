@@ -9,6 +9,12 @@ The **设计校审台** mark appears in the sidebar; clicking it opens the revie
 - **Commands** — the 24 commands (`critique`, `audit`, `polish`, `typeset`, `live`, …). Clicking a card copies its prompt; the arrow in the corner starts a new conversation with that prompt instead. The prompt points the agent at the skill docs so it can read `SKILL.md` and `reference/<command>.md` before acting.
 - **Rules** — the 62 rules, searchable, with id, category and description. Collapsed by default.
 
+## Screenshots
+
+| Light | Dark |
+| --- | --- |
+| ![The review desk in light mode](docs/shots/panel-light.png) | ![The review desk in dark mode](docs/shots/panel-dark.png) |
+
 ## Nothing to install by hand
 
 The skill ships inside this package (`skill/`, version 4.10.0 — 24 commands, 62 rules, 47 reference docs). Installing the plugin is enough.
