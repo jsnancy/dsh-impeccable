@@ -1,6 +1,6 @@
-# 0.6.0 更新（维护市场条目用）
+# 0.6.1 更新（维护市场条目用）
 
-插件市场仓库是 [awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)，条目在 `data/plugins/jsnancy__dsh-impeccable.yml`。这个条目**已经存在**（category `ui`，旧描述只讲 62 条规则和面板），0.6.0 只改描述、补一个显式 `icon`，不用新增条目。
+插件市场仓库是 [awesome-dsh-plugin/awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)，条目在 `data/plugins/jsnancy__dsh-impeccable.yml`。这个条目**已经存在**（category `ui`，旧描述只讲 62 条规则和面板），本次只改描述、补一个显式 `icon`，不用新增条目。条目内容一版定稿；0.6.1 是只动 README 的补丁版，不影响这条 PR。
 
 - PR：[awesome-dsh-plugin#19226](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/pull/19226)
 - 可直接应用的补丁：[`awesome-dsh-plugin.patch`](./awesome-dsh-plugin.patch)
@@ -14,7 +14,7 @@
 
 ## 提交顺序
 
-先发 npm（`dsh-impeccable-studio@0.6.0`），再更新条目，最后提 PR —— 市场校验会探测仓库的 `package.json`、`dsh.bundle` 与 npm 版本，版本对不上会多一轮来回。
+先发 npm（`dsh-impeccable-studio@0.6.1`），再更新条目，最后提 PR —— 市场校验会探测仓库的 `package.json`、`dsh.bundle` 与 npm 版本，版本对不上会多一轮来回。
 
 ## 复现（下次更新条目）
 

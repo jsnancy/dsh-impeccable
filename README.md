@@ -1,6 +1,6 @@
 # dsh-impeccable
 
-Design review desk for DeepSeek Harness. Brings [impeccable](https://github.com/pbakaus/impeccable)'s design vocabulary into the sidebar: 24 commands, 62 deterministic detectors, and a one-click scan of the interface in front of you. The panel is drawn by hand on paper — a warm sheet in the light theme, kraft paper in the dark one — in the same visual family as [十六跟做图](https://github.com/jsnancy/dsh-imagine).
+Design review desk for DeepSeek Harness. Brings [impeccable](https://github.com/pbakaus/impeccable)'s design vocabulary into the sidebar: 24 commands, 62 deterministic detectors, and a one-click scan of the interface in front of you. The panel is drawn by hand on paper — a warm sheet in the light theme, kraft paper in the dark one.
 
 The **设计校审台** mark appears in the sidebar; clicking it opens the review desk with four numbered sections.
 
@@ -90,7 +90,7 @@ dsh plugin remove dsh-impeccable-studio
 
 ## 中文
 
-把 [impeccable](https://github.com/pbakaus/impeccable) 的设计审校能力搬进 DeepSeek Harness 左侧面板。面板画在纸上：浅色是暖白纸，深色是牛皮纸，跟[十六跟做图](https://github.com/jsnancy/dsh-imagine)是同一路手绘风。
+把 [impeccable](https://github.com/pbakaus/impeccable) 的设计审校能力搬进 DeepSeek Harness 左侧面板。面板画在纸上：浅色是暖白纸，深色是牛皮纸。
 
 左侧栏多一个放大镜图标，点开是「设计校审台」，四个编号区块：
 
