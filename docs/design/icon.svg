@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="paper" x1="0.1" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#fffdf7"/>
+      <stop offset="0.62" stop-color="#faf3e2"/>
+      <stop offset="1" stop-color="#f0e2c3"/>
+    </linearGradient>
+    <linearGradient id="brush" x1="0.2" y1="1" x2="0.9" y2="0">
+      <stop offset="0" stop-color="#a83420"/>
+      <stop offset="0.5" stop-color="#cf4a32"/>
+      <stop offset="1" stop-color="#e9794f"/>
+    </linearGradient>
+    <radialGradient id="lens" cx="0.38" cy="0.32" r="0.85">
+      <stop offset="0" stop-color="#fffdf7"/>
+      <stop offset="1" stop-color="#f6ecd7"/>
+    </radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <!-- 纸面 -->
+  <rect x="10" y="10" width="492" height="492" rx="92" fill="url(#paper)"/>
+  <rect x="10" y="10" width="492" height="492" rx="92" filter="url(#grain)" opacity="0.055"/>
+  <path d="M10 68 Q10 10 68 10 L92 10 L10 92 Z" fill="#eee0bf" opacity="0.5"/>
+  <path d="M502 452 C502 494 486 502 452 502 L330 502 C398 494 460 452 502 372 Z" fill="#e6d6b4" opacity="0.45"/>
+
+  <!-- 放大镜：手抖的双线镜圈 -->
+  <circle cx="196" cy="192" r="112" fill="url(#lens)"/>
+  <path d="M196 72 C262 74 310 124 308 192 C306 258 258 308 192 306 C128 304 78 258 80 192 C82 128 126 74 194 76"
+        fill="none" stroke="#39312a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M92 198 C96 258 140 296 198 298" fill="none" stroke="#6b5a45" stroke-width="4.5" stroke-linecap="round" opacity="0.42"/>
+  <path d="M186 82 C244 82 292 122 296 180" fill="none" stroke="#6b5a45" stroke-width="3.4" stroke-linecap="round" opacity="0.32"/>
+
+  <!-- 柄：一笔炭条，收笔带点毛边 -->
+  <path d="M274 270 L392 384" fill="none" stroke="#39312a" stroke-width="40" stroke-linecap="round"/>
+  <path d="M296 292 L374 366" fill="none" stroke="#4d3f31" stroke-width="13" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- 镜片里一笔朱砂勾：找到了 -->
+  <path d="M138 196 C146 208 158 226 172 236 C182 244 190 242 198 232 C214 210 232 180 258 152"
+        fill="none" stroke="url(#brush)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M144 200 C154 216 166 230 178 238" fill="none" stroke="#e9794f" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+  <path d="M210 218 C226 196 240 176 260 156" fill="none" stroke="#f3a274" stroke-width="5" stroke-linecap="round" opacity="0.45"/>
+  <path d="M186 236 C214 228 240 200 256 170" fill="none" stroke="#ffe2c6" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- 落笔与墨点 -->
+  <path d="M84 392 C92 386 102 386 110 390" fill="none" stroke="#39312a" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="112" cy="414" r="10" fill="#39312a" opacity="0.88"/>
+  <circle cx="78" cy="366" r="5.5" fill="#39312a" opacity="0.45"/>
+  <circle cx="140" cy="434" r="4" fill="#cf4a32" opacity="0.45"/>
+  <circle cx="424" cy="150" r="6" fill="#cf4a32" opacity="0.4"/>
+  <path d="M410 120 C420 114 430 116 436 124" fill="none" stroke="#cf4a32" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+</svg>

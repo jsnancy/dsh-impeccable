@@ -1,6 +1,6 @@
 # dsh-impeccable
 
-Design review desk for DeepSeek Harness. Brings [impeccable](https://github.com/pbakaus/impeccable)'s design vocabulary into the sidebar: 24 commands, 62 deterministic detectors, and a one-click scan of the interface in front of you.
+Design review desk for DeepSeek Harness. Brings [impeccable](https://github.com/pbakaus/impeccable)'s design vocabulary into the sidebar: 24 commands, 62 deterministic detectors, and a one-click scan of the interface in front of you. The panel is drawn by hand on paper — a warm sheet in the light theme, kraft paper in the dark one — in the same visual family as [十六跟做图](https://github.com/jsnancy/dsh-imagine).
 
 The **设计校审台** mark appears in the sidebar; clicking it opens the review desk with four numbered sections.
 
@@ -38,7 +38,13 @@ Every command and every rule carries a Chinese name and description, so the pane
 
 ## Visual language
 
-The panel is set like a printed sheet, not a settings form: numbered sections over hairlines, one accent colour, tabular figures for the counts, and hairline cards that put the page name over its directory and age. The rail is a narrow column holding the mark, three anchors and the display controls at its foot; below 900px it folds into a top bar and the content goes single column at 560px. The palette is local to the panel (`--im-*`): a paper-white scheme and an ink-dark one. **Auto** follows the DSH theme attribute, **Light** and **Dark** pin it; the choice survives reloads. Reading text stays at 12px or larger (the small mono labels are 11px), and the only motion is a skeleton shimmer and a progress bar that breathes in place.
+The panel is drawn on paper, not set like a settings form.
+
+- **Light** is a warm sheet: `#fbf6ea` ground with a grain texture and darker paper edges, charcoal ink for outlines, vermilion for links, section numbers and the primary button, highlighter yellow for the selected rail item and filter chip. Section numbers sit inside hand-drawn circles; headings are handwritten with a wobbling vermilion underline; counts, ids and versions use a handwriting numeral face (Bradley Hand, Chalkboard SE); body copy uses a pen-handwriting face where one is installed and falls back to the system sans where it is not, so the small print stays legible.
+- **Dark** is the same drawing on kraft paper: `#1d1811` ground, cream chalk lines, salmon vermilion, dimmed mustard marker, and the sticky notes drop to olive, oxblood, slate and moss.
+- **Made of paper, not chrome**: cards are stickers — 1.5–2px ink outlines with irregular corner radii, a hard 2–3px offset shadow, sub-degree rotations that straighten on hover, a strip of washi tape across the recently edited pages; each sticky note has one short red rule along its top; separators are dashed and the focus ring is dashed vermilion. The mark and the app icon (a hand-drawn magnifier with a vermilion brush tick) come from the same pen, drawn as an SVG in `docs/design/icon.svg` and rendered to `icon.png`.
+
+Everything lives in the panel's own `--im-*` tokens inside one `<style>` string in `lib/client.js`; nothing is fetched over the network. **Auto** follows the DSH theme attribute, **Light** and **Dark** pin it, and the choice survives reloads. The rail is a narrow column holding the mark, the three anchors and the display controls at its foot; below 900px it folds into a top bar and the content goes single column at 560px. Reading text stays at 12px or larger (small labels were raised from 11px), and the only motion is a skeleton shimmer and a progress bar that breathes in place.
 
 ## Three steps, no vocabulary
 
@@ -52,7 +58,7 @@ The 24 commands and the 62-rule catalog are still there, but folded away under *
 
 ## Checked against its own rules
 
-This panel is scanned by the same 62 rules it exposes. The first pass found 66 problems in it: it opened with a tracked uppercase kicker above the heading (banned outright), its scanning bar was an infinite horizontal marquee (banned), and 62 runs of text sat under the 11px legibility floor. The kicker and the side stripes are gone, the bar breathes in place instead of sliding, and reading text is 12px or larger. A flat render of the main screen now returns no findings; the only notes left in a full snapshot are the preview frame's own padding and one rule description quoting the buzzwords it warns about.
+This panel is scanned by the same 62 rules it exposes. The first pass found 66 problems in it: it opened with a tracked uppercase kicker above the heading (banned outright), its scanning bar was an infinite horizontal marquee (banned), and 62 runs of text sat under the 11px legibility floor. Those are gone, and the hand-drawn skin was scanned the same way. A flat light render returns two notes, both deliberate: `cream-palette` (the warm paper ground) and `repeating-stripes-gradient` (the washi tape and the dashed progress track) — a paper skin without cream is not a paper skin. In the dark scheme one more note appears, `cramped-padding` on the panel root: the panel is full-bleed by design, so the rail and the content sit flush against it. Contrast, legibility, all-caps and marquee come back clean. With the command and rule lists expanded the only extra note is a rule description quoting the buzzwords it warns about.
 
 ## Install
 
@@ -71,11 +77,12 @@ dsh plugin remove dsh-impeccable-studio
 ## How it works
 
 - `lib/index.js` — host side. Registers three routes under `/impeccable/api/*` (`targets`, `catalog`, `detect`), resolves the skill and the engine, runs the CLI and returns JSON. Each detection runs with a 180s timeout (10min while the engine is still downloading), a 64MB buffer and at most 600 findings returned.
-- `lib/client.js` — browser side. Registers `sidebar.panellist` (order 15) and `main` (`key: impeccable`).
+- `lib/client.js` — browser side. Registers `sidebar.panellist` (order 15) and `main` (`key: impeccable`). The hand-drawn skin is one `STYLE` template string at the bottom of that file — presentation only, no DOM changes.
 - `skill/` — the bundled skill: `SKILL.md`, 24 command rows, 47 reference docs, the launcher and its data files.
 - `lib/zh.js` — Chinese names and descriptions for the 24 commands, 6 categories and all 62 rules, applied on the host side when building the catalog.
 - `locale/` — title and description shown in the plugin list.
-- The panel carries its own `--im-*` palette for light and dark; **Auto** reads the host theme attribute, **Light** / **Dark** override it.
+- The panel carries its own `--im-*` tokens for both schemes (paper ground, ink lines, vermilion accent, marker yellow, sticky-note tints, tape and hard-shadow colours); **Auto** reads the host theme attribute, **Light** / **Dark** override it.
+- `docs/design/icon.svg` — the hand-drawn mark; `icon.png` is the rendered 512px tile with transparent corners.
 
 `impeccable detect` exits with code 2 when there are findings while still printing the full JSON report; the host side reads it from `error.stdout` and treats it as a result, not a failure.
 
@@ -83,7 +90,7 @@ dsh plugin remove dsh-impeccable-studio
 
 ## 中文
 
-把 [impeccable](https://github.com/pbakaus/impeccable) 的设计审校能力搬进 DeepSeek Harness 左侧面板。
+把 [impeccable](https://github.com/pbakaus/impeccable) 的设计审校能力搬进 DeepSeek Harness 左侧面板。面板画在纸上：浅色是暖白纸，深色是牛皮纸，跟[十六跟做图](https://github.com/jsnancy/dsh-imagine)是同一路手绘风。
 
 左侧栏多一个放大镜图标，点开是「设计校审台」，四个编号区块：
 
@@ -94,9 +101,13 @@ dsh plugin remove dsh-impeccable-studio
 
 **中英双语**：左栏底部有「中 / EN」开关，可以覆盖应用语言并记住选择；24 条命令和 62 条规则的名称、说明都有中文，缺译处回落到英文原文，规则搜索中英双匹配。
 
-**明暗两套**：左栏底部「自动 / 浅色 / 深色」三档。自动跟随 DSH 当前主题，浅色和深色把面板锁成纸白或墨黑；两套配色都写在面板自己的 `--im-*` 变量里，与宿主主题解耦，刷新后保留选择。
+**明暗两套**：左栏底部「自动 / 浅色 / 深色」三档。自动跟随 DSH 当前主题，浅色和深色把面板锁成暖白纸或牛皮纸；两套配色都写在面板自己的 `--im-*` 变量里，与宿主主题解耦，刷新后保留选择。
 
-面板按印刷品来排：区块用编号和细线分开，命令卡用细边框而不是厚卡片，数字用等宽表格数字；左栏是一列窄导航，900px 以下折成顶栏，560px 以下单列。正文不小于 12px，小号等宽标签 11px；动效只保留骨架微光和一条会呼吸的 3px 进度条。
+**手绘纸皮肤**：纸面带纸纹和边缘暗角，边框是不规则圆角加硬阴影；标题用翩翩体（HanziPen SC），正文用手写体（手札体 / 翩翩体 / 楷体，装不到就退回系统字，保证小字清晰），数字和编号交给 Bradley Hand；分节号外面一圈手绘椭圆，标题下是一条朱红波浪线，四格数字是米黄 / 淡粉 / 淡蓝 / 淡绿的便签、各配一条红短横线，最近改过的页面像贴纸一样顶上贴一条和纸胶带、悬停抬起回正；分隔线和焦点框都是虚线。图标也是一支笔画出来的手绘放大镜（朱砂勾），源文件在 `docs/design/icon.svg`，`icon.png` 由它导出。
+
+左栏是一列窄导航，900px 以下折成顶栏，560px 以下单列。正文不小于 12px（原来 11px 的小标签都提上来了），动效只保留骨架微光和一条会呼吸的虚线进度条。
+
+**自查**：这套皮肤会被自己的规则扫出两条 —— `cream-palette`（暖纸底）和 `repeating-stripes-gradient`（胶带和进度虚线），都是有意的；深色下还会多一条 `cramped-padding`，说的是面板铺满整个容器、左右两侧不留白 —— 面板本来就是满幅的。对比度、字号、全大写、跑马灯这类问题一条没有。
 
 **不用手动装技能**：技能（4.10.0，24 命令 / 62 规则 / 47 篇参考文档）已经打包在插件的 `skill/` 目录里，装插件即用。
 
