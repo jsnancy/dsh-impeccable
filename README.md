@@ -1,8 +1,8 @@
 # dsh-impeccable
 
-Design review desk for DeepSeek Harness. Brings [impeccable](https://github.com/pbakaus/impeccable)'s design vocabulary into the sidebar: 24 commands, 62 deterministic detectors, and a one-click scan of the interface in front of you. The panel is drawn by hand on paper — a warm sheet in the light theme, kraft paper in the dark one.
+Shiliu design review desk for DeepSeek Harness. Brings [impeccable](https://github.com/pbakaus/impeccable)'s design vocabulary into the sidebar: 24 commands, 62 deterministic detectors, and a one-click scan of the interface in front of you. The panel is drawn by hand on paper — a warm sheet in the light theme, kraft paper in the dark one.
 
-The **设计校审台** mark appears in the sidebar; clicking it opens the review desk with four numbered sections.
+The **十六校审台** mark appears in the sidebar; clicking it opens the review desk with four numbered sections.
 
 - **Pick a page** — the field sits at the top: filter the HTML files you edited recently, or paste a path or URL. Click a card to select it; the arrow on the card checks that page directly.
 - **Result** — findings grouped by problem, in plain language, with file and line; locations in the same file share one line (up to three line numbers), and a **Have AI fix it** link opens a session with the file, the problem and the skill path. The section scrolls itself into view when a check finishes.
@@ -92,7 +92,7 @@ dsh plugin remove dsh-impeccable-studio
 
 把 [impeccable](https://github.com/pbakaus/impeccable) 的设计审校能力搬进 DeepSeek Harness 左侧面板。面板画在纸上：浅色是暖白纸，深色是牛皮纸。
 
-左侧栏多一个放大镜图标，点开是「设计校审台」，四个编号区块：
+左侧栏多一个放大镜图标，点开是「十六校审台」，四个编号区块：
 
 - **选页面** — 输入框在最上面：筛选最近改过的 HTML，或粘贴路径 / 网址。点卡片选中，点卡片右上角箭头直接检查
 - **看结果** — 问题按类型分组，写清文件和行号，每组最多列三处，带「让 AI 帮我改」链接；检查完成后这一块会自动滚进视野
