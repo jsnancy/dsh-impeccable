@@ -1,6 +1,6 @@
 {
   "name": "dsh-impeccable-studio",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Design review desk (设计校审台) for DeepSeek Harness: 24 design commands, 62 deterministic detectors and a one-click scan. Findings grouped by problem; hand-drawn paper panel in warm paper or kraft, with Chinese/English and light/dark/auto. Skill included.",
   "type": "module",
   "main": "lib/index.js",

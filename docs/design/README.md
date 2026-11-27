@@ -48,6 +48,7 @@ macOS 上只装了翩翩体（Hannotate / Kaiti 会回落到 Songti），所以 
 1. 把 `icon.svg` 放进一个 1024×1024 的空白页，浏览器按 1024 渲染截屏；
 2. 用 Pillow 把截图 LANCZOS 缩到 512，再按 rect(10..502, r=92) 做 4 倍超采样的圆角遮罩 `putalpha`，四角透明；
 3. 覆盖仓库根的 `icon.png`。宿主和插件市场都读这张图。
+4. 把 `lib/client.js` 里 `ICON_URL` 的 `?v=` 加一。宿主的 icon 路由带 ETag 且 `cache-control: no-cache`，浏览器会回源校验；版本串是给已经缓存了旧图的会话留的一道保险。
 
 ## 自查
 
